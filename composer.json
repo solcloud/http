@@ -1,0 +1,11 @@
+{
+    "name": "solcloud/http",
+    "require": {
+        "php": ">= 7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Solcloud\\Http\\": "src/"
+        }
+    }
+}
