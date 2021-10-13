@@ -1,5 +1,8 @@
 {
     "name": "solcloud/http",
+    "description": "Basic low level HTTP Request, Response envelopes",
+    "license": "MIT",
+    "keywords": ["http"],
     "require": {
         "php": ">= 7.1"
     },
