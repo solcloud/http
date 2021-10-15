@@ -11,7 +11,7 @@ $request
     ->setConnectionTimeoutSec(1)
     ->setRequestTimeoutSec(2)
     ->setHeaders([
-        'X-header' => 'x-value',
+        'X-header: x-value',
     ])
     ->setReferer('about:blank')
     ->setUserAgent('solcloud-curl')
