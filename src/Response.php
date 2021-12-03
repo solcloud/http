@@ -64,6 +64,24 @@ class Response
         return [];
     }
 
+    /**
+     * @return array<string,?string> lowercase header key => value
+     */
+    public function getLastHeadersFormatted(): array
+    {
+        $output = [];
+        foreach ($this->getLastHeaders() as $header) {
+            if (false === (is_string($header) && strpos($header, ':') > 0)) {
+                continue;
+            }
+
+            $parts = explode(':', $header, 2);
+            $output[strtolower($parts[0])] = $parts[1] ?? null;
+        }
+
+        return $output;
+    }
+
     public function getAllHeaders(): array
     {
         return $this->responseHeaders;
