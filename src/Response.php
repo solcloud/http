@@ -65,7 +65,7 @@ class Response
     }
 
     /**
-     * @return array<string,?string> lowercase header key => value
+     * @return array<string,string> lowercase header key => value
      */
     public function getLastHeadersFormatted(): array
     {
@@ -76,7 +76,7 @@ class Response
             }
 
             $parts = explode(':', $header, 2);
-            $output[strtolower($parts[0])] = $parts[1] ?? null;
+            $output[strtolower($parts[0])] = trim($parts[1] ?? '');
         }
 
         return $output;
