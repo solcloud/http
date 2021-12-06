@@ -69,17 +69,7 @@ class Response
      */
     public function getLastHeadersFormatted(): array
     {
-        $output = [];
-        foreach ($this->getLastHeaders() as $header) {
-            if (false === (is_string($header) && strpos($header, ':') > 0)) {
-                continue;
-            }
-
-            $parts = explode(':', $header, 2);
-            $output[strtolower($parts[0])] = trim($parts[1] ?? '');
-        }
-
-        return $output;
+        return $this->formatHeaders($this->getLastHeaders());
     }
 
     public function getAllHeaders(): array
@@ -90,6 +80,25 @@ class Response
     public function setAllHeaders(array $responseHeaders): void
     {
         $this->responseHeaders = $responseHeaders;
+    }
+
+    /**
+     * @param string[] $headers
+     * @return array<string,string> lowercase header key => value
+     */
+    public function formatHeaders(array $headers): array
+    {
+        $output = [];
+        foreach ($headers as $header) {
+            if (false === (is_string($header) && strpos($header, ':') > 0)) {
+                continue;
+            }
+
+            $parts = explode(':', $header, 2);
+            $output[strtolower($parts[0])] = trim($parts[1] ?? '');
+        }
+
+        return $output;
     }
 
     public function getException(): ?HttpException
