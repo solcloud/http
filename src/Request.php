@@ -7,17 +7,17 @@ class Request
 
     protected $url;
     protected $method = 'GET';
-    protected $outgoingIp;
+    protected $outgoingIp = null;
     protected $postFields = [];
     protected $userAgent = 'Firefox 3.6.8';
     protected $headers = [];
-    protected $referer;
+    protected $referer = null;
     protected $connectionTimeoutMs = 6000;
     protected $requestTimeoutMs = 6000;
     protected $followLocation = TRUE;
     protected $verifyPeer = TRUE;
     protected $verifyHost = TRUE;
-    protected $basicHTTPAuthentication;
+    protected $basicHTTPAuthentication = null;
 
     public function getBasicHTTPAuthentication(): ?string
     {
