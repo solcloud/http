@@ -17,6 +17,7 @@ class Request
     protected $followLocation = TRUE;
     protected $verifyPeer = TRUE;
     protected $verifyHost = TRUE;
+    protected $includeCertificatesInfo = false;
     protected $basicHTTPAuthentication = null;
 
     public function getBasicHTTPAuthentication(): ?string
@@ -27,6 +28,16 @@ class Request
     public function setBasicHTTPAuthentication(string $username, string $password): void
     {
         $this->basicHTTPAuthentication = $username . ':' . $password;
+    }
+
+    public function shouldIncludeCertificatesInfo(): bool
+    {
+        return $this->includeCertificatesInfo;
+    }
+
+    public function setIncludeCertificatesInfo(bool $includeCertificatesInfo): void
+    {
+        $this->includeCertificatesInfo = $includeCertificatesInfo;
     }
 
     public function getVerifyPeer(): bool

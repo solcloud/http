@@ -12,6 +12,7 @@ class Response
     protected $responseBody = '';
     protected $lastIp = '';
     protected $realUrl = '';
+    protected $certificates = [];
     protected $exception;
 
     public function getLastIp(): string
@@ -99,6 +100,16 @@ class Response
         }
 
         return $output;
+    }
+
+    public function getCertificates(): array
+    {
+        return $this->certificates;
+    }
+
+    public function setCertificates(array $certificates): void
+    {
+        $this->certificates = $certificates;
     }
 
     public function getException(): ?HttpException
